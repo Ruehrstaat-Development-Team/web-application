@@ -1,0 +1,33 @@
+{
+  "name": "ruehrstaat-app",
+  "description": "This is the Ruehrstaats Services Web Application",
+  "private": true,
+  "type": "module",
+  "main": "dist-electron/main.js",
+  "version": "0.0.1",
+  "author": {
+    "email": "info@ruehrstaat.de",
+    "name": "Ruehrstaat Development Team",
+    "url": "https://ruehrstaat.de"
+  },
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "electron-build": "nuxi build --prerender && electron-builder"
+  },
+  "dependencies": {
+    "nuxt": "^3.15.4",
+    "vue": "latest",
+    "vue-router": "latest"
+  },
+  "devDependencies": {
+    "electron": "^34.1.1",
+    "electron-builder": "^25.1.8",
+    "nuxt-electron": "^0.7.0",
+    "vite-plugin-electron": "^0.29.0",
+    "vite-plugin-electron-renderer": "^0.14.6"
+  }
+}
