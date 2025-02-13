@@ -1,5 +1,7 @@
 import { app, BrowserWindow, nativeImage } from 'electron';
 import path from 'path';
+import parseTxtFiles from './parser';
+import os from 'os';
 
 function createStartupWindow() {
     const iconPath = path.join(app.getAppPath(), 'public/favicon.ico');
@@ -52,5 +54,7 @@ app.on('window-all-closed', () => {
 });
 
 console.log('Main process started on ' + process.env.NODE_ENV);
+
+parseTxtFiles().catch(err => console.error(err));
 
 
