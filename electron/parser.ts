@@ -12,12 +12,14 @@ async function getDocumentsPath(): Promise<string> {
         const possibleLocations = [
             documentsPath,
             dokumentePath,
+            path.join('D:', 'Dokumente'),
             path.join('E:', 'Dokumente'),
             path.join('F:', 'Dokumente'),
             path.join('G:', 'Dokumente'),
             path.join('H:', 'Dokumente'),
             path.join('I:', 'Dokumente'),
             path.join('J:', 'Dokumente'),
+            path.join('D:', 'Documents'),
             path.join('E:', 'Documents'),
             path.join('F:', 'Documents'),
             path.join('G:', 'Documents'),
@@ -87,7 +89,7 @@ async function parseTxtFiles() {
         const outputFilePath = path.join(outputDir, 'Ruehrstaat Services', 'combined_logs.txt');
         await fs.promises.writeFile(outputFilePath, combinedContent, 'utf8');
 
-        console.log(`✅ Logs combined and saved in: ${outputFilePath}`);
+        console.log(`Logs combined and saved in: ${outputFilePath}`);
 
         fs.watch(dirPath, (eventType, filename) => {
             if (eventType === 'change' && filename && filename.endsWith('.log')) {
@@ -110,7 +112,7 @@ async function handleFileChange(dirPath: string, filename: string, outputFilePat
         existingContent += updatedContent;
         await fs.promises.writeFile(outputFilePath, existingContent, 'utf8');
 
-        console.log(`✅ Logs updated with changes from: ${filename}`);
+        console.log(`Logs updated with changes from: ${filename}`);
     } catch (error) {
         console.error("Error handling file change:", error);
     }

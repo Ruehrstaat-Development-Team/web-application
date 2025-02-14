@@ -1,7 +1,6 @@
 import { app, BrowserWindow, nativeImage } from 'electron';
 import path from 'path';
-import parseTxtFiles from './parser';
-import os from 'os';
+import parseTxtFiles from './test';
 
 function createStartupWindow() {
     const iconPath = path.join(app.getAppPath(), 'public/favicon.ico');
@@ -43,6 +42,7 @@ app.whenReady().then(() => {
     app.on('activate', () => {
         if (BrowserWindow.getAllWindows().length === 0) {
             createStartupWindow();
+            
         }
     });
 });
